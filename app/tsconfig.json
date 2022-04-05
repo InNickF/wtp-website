@@ -17,20 +17,22 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ],
-      "@*": [
-        "./components/@*"
-      ]
+      "@/website/*": [
+        "./src/modules/website/*"
+      ],
     },
     "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/commons/components/other/WPTLogo/index.jsx"
   ],
   "exclude": [
     "node_modules"
