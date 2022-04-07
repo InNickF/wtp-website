@@ -4,10 +4,29 @@ import { LogoModelProps } from '@/website/typings/LogoModelsProps'
 import BaseModel from '../BaseModel'
 
 const JSLogoModel = forwardRef(
-  ({ children, ...props }: LogoModelProps, ref: any) => {
+  (
+    {
+      children,
+      proportionalScale,
+      position,
+      rotation,
+      scale,
+      pausedAnimation,
+      matcap
+    }: LogoModelProps,
+    ref: any
+  ) => {
     const { nodes } = useGLTF('/js-transformed.glb')
     return (
-      <BaseModel ref={ref} {...props} geometry={nodes.js.geometry}>
+      <BaseModel
+        ref={ref}
+        proportionalScale={proportionalScale}
+        position={position}
+        rotation={rotation}
+        scale={scale}
+        matcap={matcap}
+        pausedAnimation={pausedAnimation}
+        geometry={nodes.js.geometry}>
         {children}
       </BaseModel>
     )

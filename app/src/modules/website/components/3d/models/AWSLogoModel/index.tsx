@@ -4,10 +4,29 @@ import { LogoModelProps } from '@/website/typings/LogoModelsProps'
 import BaseModel from '../BaseModel'
 
 const AWSLogoModel = forwardRef(
-  ({ children, ...props }: LogoModelProps, ref: any) => {
+  (
+    {
+      children,
+      proportionalScale,
+      position,
+      rotation,
+      scale,
+      pausedAnimation,
+      matcap
+    }: LogoModelProps,
+    ref: any
+  ) => {
     const { nodes } = useGLTF('/aws-transformed.glb')
     return (
-      <BaseModel ref={ref} {...props} geometry={nodes.aws.geometry}>
+      <BaseModel
+        ref={ref}
+        proportionalScale={proportionalScale}
+        position={position}
+        rotation={rotation}
+        scale={scale}
+        matcap={matcap}
+        pausedAnimation={pausedAnimation}
+        geometry={nodes.aws.geometry}>
         {children}
       </BaseModel>
     )

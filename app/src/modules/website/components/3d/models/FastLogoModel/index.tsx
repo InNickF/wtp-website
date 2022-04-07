@@ -4,10 +4,29 @@ import { LogoModelProps } from '@/website/typings/LogoModelsProps'
 import BaseModel from '../BaseModel'
 
 const FastLogoModel = forwardRef(
-  ({ children, ...props }: LogoModelProps, ref: any) => {
+  (
+    {
+      children,
+      proportionalScale,
+      position,
+      rotation,
+      scale,
+      pausedAnimation,
+      matcap
+    }: LogoModelProps,
+    ref: any
+  ) => {
     const { nodes } = useGLTF('/fast-transformed.glb')
     return (
-      <BaseModel ref={ref} {...props} geometry={nodes.fast.geometry}>
+      <BaseModel
+        ref={ref}
+        position={position}
+        rotation={rotation}
+        scale={scale}
+        matcap={matcap}
+        pausedAnimation={pausedAnimation}
+        proportionalScale={proportionalScale}
+        geometry={nodes.fast.geometry}>
         {children}
       </BaseModel>
     )

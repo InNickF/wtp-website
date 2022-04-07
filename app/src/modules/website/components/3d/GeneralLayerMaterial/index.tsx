@@ -1,6 +1,6 @@
 import { LayerMaterial, Depth, Fresnel } from 'lamina'
 import { useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
+import { useRef, memo } from 'react'
 
 const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
   const ref = useRef<any>()
@@ -8,7 +8,7 @@ const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
     const time = state.clock.elapsedTime
     const sin = Math.sin(time / 2)
     const cos = Math.cos(time / 2)
-    ref.current.layers[0].origin.set(cos / 2, cos / 4, 0)
+    ref.current.layers[0].origin.set(cos * 2, cos * 2, sin * 1.5)
     ref.current.layers[1].origin.set(cos, sin, cos)
     ref.current.layers[2].origin.set(sin, cos, sin)
     ref.current.layers[3].origin.set(cos, sin, cos)
@@ -22,7 +22,7 @@ const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
         alpha={1}
         mode="normal"
         near={0 * proportionalScale}
-        far={0.5 * proportionalScale}
+        far={2 * proportionalScale}
         origin={[0, 0, 0]}
       />
       <Depth
@@ -31,7 +31,7 @@ const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
         alpha={1}
         mode="add"
         near={0.34 * proportionalScale}
-        far={1.7 * proportionalScale}
+        far={2 * proportionalScale}
         origin={[0, 1, 1]}
       />
       <Depth
@@ -45,7 +45,7 @@ const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
       />
       <Depth
         colorA="#c532fa"
-        colorB="#fc721b"
+        colorB="#ff9e62"
         alpha={1}
         mode="overlay"
         near={0.2 * proportionalScale}
@@ -63,4 +63,6 @@ const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
   )
 }
 
-export default GeneralLayerMaterial
+export default memo(GeneralLayerMaterial, (prev, next) => {
+  return true
+})

@@ -9,4 +9,5 @@ export interface BaseModelProps {
   children?: ReactNode
   pausedAnimation?: Boolean
   geometry: any
+  matcap?: Boolean
 }

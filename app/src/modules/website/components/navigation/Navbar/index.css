@@ -1,0 +1,7 @@
+.navbar-grid {
+  @apply h-full flex w-full justify-between;
+}
+
+.links-container {
+  @apply flex items-center h-full relative gap-6;
+}

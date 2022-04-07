@@ -1,0 +1,23 @@
+.wpt-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease-in-out;
+  @apply relative font-thin !important;
+}
+
+.wpt-link:hover {
+  color: white;
+}
+
+.link-underline {
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 126, 44, 1) 0%,
+    rgba(252, 63, 200, 1) 100%
+  );
+}

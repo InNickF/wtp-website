@@ -8,65 +8,155 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
-      '2xl': '1536px'
+      '2xl': '1536px',
+      '3xl': '1920px'
     },
-    colors: ({ colors }) => ({
-      inherit: colors.inherit,
-      current: colors.current,
-      transparent: colors.transparent,
-      black: colors.black,
-      white: colors.white,
-      slate: colors.slate,
-      gray: colors.gray,
-      zinc: colors.zinc,
-      neutral: colors.neutral,
-      stone: colors.stone,
-      red: colors.red,
-      orange: colors.orange,
-      amber: colors.amber,
-      yellow: colors.yellow,
-      lime: colors.lime,
-      green: colors.green,
-      emerald: colors.emerald,
-      teal: colors.teal,
-      cyan: colors.cyan,
-      sky: colors.sky,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      violet: colors.violet,
-      purple: colors.purple,
-      fuchsia: colors.fuchsia,
-      pink: colors.pink,
-      rose: colors.rose
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: {
+        DEFAULT: 'var(--black)',
+        pure: 'var(--black-pure)',
+        opacity: 'var(--black-opacity)'
+      },
+      white: {
+        DEFAULT: 'var(--white)',
+        pure: 'var(--white-pure)',
+        opacity: 'var(--white-opacity)'
+      },
+      gray: {
+        DEFAULT: 'var(--gray)',
+        light: 'var(--gray-light)',
+        dark: 'var(--gray-dark)',
+        darker: 'var(--gray-darker)'
+      },
+      primary: {
+        DEFAULT: 'var(--primary)',
+        light: 'var(--primary-light)',
+        dark: 'var(--primary-dark)',
+        darker: 'var(--primary-darker)',
+        opacity: 'var(--primary-opacity)',
+        hover: 'var(--primary-hover)'
+      },
+      dark: {
+        DEFAULT: 'var(--dark)',
+        light: 'var(--dark-light)',
+        dark: 'var(--dark-dark)',
+        darker: 'var(--dark-darker)',
+        opacity: 'var(--dark-opacity)',
+        hover: 'var(--dark-hover)'
+      },
+      light: {
+        DEFAULT: 'var(--light)',
+        light: 'var(--light-light)',
+        dark: 'var(--light-dark)',
+        darker: 'var(--light-darker)',
+        opacity: 'var(--light-opacity)',
+        hover: 'var(--light-hover)'
+      },
+      secondary: {
+        DEFAULT: 'var(--secondary)',
+        light: 'var(--secondary-light)',
+        dark: 'var(--secondary-dark)',
+        darker: 'var(--secondary-darker)',
+        opacity: 'var(--secondary-opacity)',
+        hover: 'var(--secondary-hover)'
+      },
+      tertiary: {
+        DEFAULT: 'var(--tertiary)',
+        light: 'var(--tertiary-light)',
+        dark: 'var(--tertiary-dark)',
+        darker: 'var(--tertiary-darker)',
+        opacity: 'var(--tertiary-opacity)',
+        hover: 'var(--tertiary-hover)'
+      },
+      success: {
+        DEFAULT: 'var(--success)',
+        light: 'var(--success-light)',
+        dark: 'var(--success-dark)',
+        darker: 'var(--success-darker)',
+        opacity: 'var(--success-opacity)',
+        hover: 'var(--success-hover)'
+      },
+      warning: {
+        DEFAULT: 'var(--warning)',
+        light: 'var(--warning-light)',
+        dark: 'var(--warning-dark)',
+        darker: 'var(--warning-darker)',
+        opacity: 'var(--warning-opacity)',
+        hover: 'var(--warning-hover)'
+      },
+      error: {
+        DEFAULT: 'var(--error)',
+        light: 'var(--error-light)',
+        dark: 'var(--error-dark)',
+        darker: 'var(--error-darker)',
+        opacity: 'var(--error-opacity)',
+        hover: 'var(--error-hover)'
+      }
+    },
+    backgroundColor: (theme) => ({
+      ...theme('colors'),
+      ghost: 'var(--ghost-bg)',
+      disabled: 'var(--disabled-bg-color)'
     }),
-    columns: {
-      auto: 'auto',
-      1: '1',
-      2: '2',
-      3: '3',
-      4: '4',
-      5: '5',
-      6: '6',
-      7: '7',
-      8: '8',
-      9: '9',
-      10: '10',
-      11: '11',
-      12: '12',
-      '3xs': '16rem',
-      '2xs': '18rem',
-      xs: '20rem',
-      sm: '24rem',
-      md: '28rem',
-      lg: '32rem',
-      xl: '36rem',
-      '2xl': '42rem',
-      '3xl': '48rem',
-      '4xl': '56rem',
-      '5xl': '64rem',
-      '6xl': '72rem',
-      '7xl': '80rem'
-    },
+    backgroundOpacity: (theme) => theme('opacity'),
+    textColor: (theme) => ({
+      ...theme('colors'),
+
+      /* General colors for some texts.
+       * Example: text-link-color (For links colors) or text-calm (For secondaries texts)
+       */
+      DEFAULT: 'var(--text-color)',
+      quiet: 'var(--text-secondary-color)',
+      link: 'var(--link-color)',
+      'link-visited': 'var(--link-visited-color)',
+      'link-hover': 'var(--link-hover-color)',
+      'heading-color': 'var(--heading-color)',
+      'heading-color-hover': 'var(--heading-hover-color)',
+      disabled: 'var(--disabled-text-color)',
+
+      // Colors text above primary EX: text-above-primary
+      'above-primary': 'var(--text-above-primary)',
+      'above-primary-hover': 'var(--text-above-primary-hover)',
+
+      // Colors text above dark EX: text-above-dark
+      'above-dark': 'var(--text-above-dark)',
+      'above-dark-hover': 'var(--text-above-dark-hover)',
+
+      // Colors text above error EX: text-above-light
+      'above-light': 'var(--text-above-light)',
+      'above-light-hover': 'var(--text-above-light-hover)',
+
+      // Colors text above secondary EX: text-above-secondary
+      'above-secondary': 'var(--text-above-secondary)',
+      'above-secondary-hover': 'var(--text-above-secondary-hover)',
+
+      // Colors text above tertiary EX: text-above-tertiary
+      'above-tertiary': 'var(--text-above-tertiary)',
+      'above-tertiary-hover': 'var(--text-above-tertiary-hover)',
+
+      // Colors text above success EX: text-above-success
+      'above-success': 'var(--text-above-success)',
+      'above-success-hover': 'var(--text-above-success-hover)',
+
+      // Colors text above warning EX: text-above-warning
+      'above-warning': 'var(--text-above-warning)',
+      'above-warning-hover': 'var(--text-above-warning-hover)',
+
+      // Colors text above error EX: text-above-error
+      'above-error': 'var(--text-above-error)',
+      'above-error-hover': 'var(--text-above-error-hover)'
+    }),
+    textOpacity: (theme) => theme('opacity'),
+    borderColor: (theme) => ({
+      ...theme('colors'),
+      DEFAULT: 'var(--border-color)',
+      link: 'var(--link-color)',
+      dark: 'var(--border-dark-color)',
+      disabled: 'var(--disabled-bg-color)'
+    }),
+    borderOpacity: (theme) => theme('opacity'),
     spacing: {
       px: '1px',
       0: '0px',
@@ -125,7 +215,6 @@ module.exports = {
     backdropOpacity: ({ theme }) => theme('opacity'),
     backdropSaturate: ({ theme }) => theme('saturate'),
     backdropSepia: ({ theme }) => theme('sepia'),
-    backgroundColor: ({ theme }) => theme('colors'),
     backgroundImage: {
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
@@ -140,7 +229,6 @@ module.exports = {
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
       'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))'
     },
-    backgroundOpacity: ({ theme }) => theme('opacity'),
     backgroundPosition: {
       bottom: 'bottom',
       center: 'center',
@@ -205,34 +293,17 @@ module.exports = {
       8: '8px'
     },
     boxShadow: {
-      sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-      DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-      md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-      lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-      xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-      '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
-      inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
+      sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+      DEFAULT:
+        '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+      xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+      inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none'
-    },
-    boxShadowColor: ({ theme }) => theme('colors'),
-    caretColor: ({ theme }) => theme('colors'),
-    accentColor: ({ theme }) => ({
-      ...theme('colors'),
-      auto: 'auto'
-    }),
-    contrast: {
-      0: '0',
-      50: '.5',
-      75: '.75',
-      100: '1',
-      125: '1.25',
-      150: '1.5',
-      200: '2'
     },
     container: {},
-    content: {
-      none: 'none'
-    },
     cursor: {
       auto: 'auto',
       default: 'default',
@@ -241,102 +312,18 @@ module.exports = {
       text: 'text',
       move: 'move',
       help: 'help',
-      'not-allowed': 'not-allowed',
-      none: 'none',
-      'context-menu': 'context-menu',
-      progress: 'progress',
-      cell: 'cell',
-      crosshair: 'crosshair',
-      'vertical-text': 'vertical-text',
-      alias: 'alias',
-      copy: 'copy',
-      'no-drop': 'no-drop',
-      grab: 'grab',
-      grabbing: 'grabbing',
-      'all-scroll': 'all-scroll',
-      'col-resize': 'col-resize',
-      'row-resize': 'row-resize',
-      'n-resize': 'n-resize',
-      'e-resize': 'e-resize',
-      's-resize': 's-resize',
-      'w-resize': 'w-resize',
-      'ne-resize': 'ne-resize',
-      'nw-resize': 'nw-resize',
-      'se-resize': 'se-resize',
-      'sw-resize': 'sw-resize',
-      'ew-resize': 'ew-resize',
-      'ns-resize': 'ns-resize',
-      'nesw-resize': 'nesw-resize',
-      'nwse-resize': 'nwse-resize',
-      'zoom-in': 'zoom-in',
-      'zoom-out': 'zoom-out'
+      'not-allowed': 'not-allowed'
     },
-    divideColor: ({ theme }) => theme('borderColor'),
-    divideOpacity: ({ theme }) => theme('borderOpacity'),
-    divideWidth: ({ theme }) => theme('borderWidth'),
-    dropShadow: {
-      sm: '0 1px 1px rgb(0 0 0 / 0.05)',
-      DEFAULT: ['0 1px 2px rgb(0 0 0 / 0.1)', '0 1px 1px rgb(0 0 0 / 0.06)'],
-      md: ['0 4px 3px rgb(0 0 0 / 0.07)', '0 2px 2px rgb(0 0 0 / 0.06)'],
-      lg: ['0 10px 8px rgb(0 0 0 / 0.04)', '0 4px 3px rgb(0 0 0 / 0.1)'],
-      xl: ['0 20px 13px rgb(0 0 0 / 0.03)', '0 8px 5px rgb(0 0 0 / 0.08)'],
-      '2xl': '0 25px 25px rgb(0 0 0 / 0.15)',
-      none: '0 0 #0000'
-    },
-    fill: ({ theme }) => theme('colors'),
-    grayscale: {
-      0: '0',
-      DEFAULT: '100%'
-    },
-    hueRotate: {
-      0: '0deg',
-      15: '15deg',
-      30: '30deg',
-      60: '60deg',
-      90: '90deg',
-      180: '180deg'
-    },
-    invert: {
-      0: '0',
-      DEFAULT: '100%'
-    },
+    divideColor: (theme) => theme('borderColor'),
+    divideOpacity: (theme) => theme('borderOpacity'),
+    divideWidth: (theme) => theme('borderWidth'),
+    fill: { current: 'currentColor' },
     flex: {
       1: '1 1 0%',
       auto: '1 1 auto',
       initial: '0 1 auto',
       none: 'none'
     },
-    flexBasis: ({ theme }) => ({
-      auto: 'auto',
-      ...theme('spacing'),
-      '1/2': '50%',
-      '1/3': '33.333333%',
-      '2/3': '66.666667%',
-      '1/4': '25%',
-      '2/4': '50%',
-      '3/4': '75%',
-      '1/5': '20%',
-      '2/5': '40%',
-      '3/5': '60%',
-      '4/5': '80%',
-      '1/6': '16.666667%',
-      '2/6': '33.333333%',
-      '3/6': '50%',
-      '4/6': '66.666667%',
-      '5/6': '83.333333%',
-      '1/12': '8.333333%',
-      '2/12': '16.666667%',
-      '3/12': '25%',
-      '4/12': '33.333333%',
-      '5/12': '41.666667%',
-      '6/12': '50%',
-      '7/12': '58.333333%',
-      '8/12': '66.666667%',
-      '9/12': '75%',
-      '10/12': '83.333333%',
-      '11/12': '91.666667%',
-      full: '100%'
-    }),
     flexGrow: {
       0: '0',
       DEFAULT: '1'
@@ -345,56 +332,62 @@ module.exports = {
       0: '0',
       DEFAULT: '1'
     },
-    fontFamily: {
-      sans: [
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"'
-      ],
-      serif: [
-        'ui-serif',
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'Times',
-        'serif'
-      ],
-      mono: [
-        'ui-monospace',
-        'SFMono-Regular',
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        '"Courier New"',
-        'monospace'
-      ]
-    },
+    fontFamily: false,
     fontSize: {
-      xs: ['0.75rem', { lineHeight: '1rem' }],
-      sm: ['0.875rem', { lineHeight: '1.25rem' }],
-      base: ['1rem', { lineHeight: '1.5rem' }],
-      lg: ['1.125rem', { lineHeight: '1.75rem' }],
-      xl: ['1.25rem', { lineHeight: '1.75rem' }],
-      '2xl': ['1.5rem', { lineHeight: '2rem' }],
-      '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-      '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-      '5xl': ['3rem', { lineHeight: '1' }],
-      '6xl': ['3.75rem', { lineHeight: '1' }],
-      '7xl': ['4.5rem', { lineHeight: '1' }],
-      '8xl': ['6rem', { lineHeight: '1' }],
-      '9xl': ['8rem', { lineHeight: '1' }]
+      // Root font size
+      'r-xs': [
+        'var(--r-xs-font-size)',
+        { lineHeight: 'var(--r-xs-line-height)' }
+      ],
+      'r-2xl': [
+        'var(--r-2xl-font-size)',
+        { lineHeight: 'var(--r-2xl-line-height)' }
+      ],
+      'r-3xl': [
+        'var(--r-3xl-font-size)',
+        { lineHeight: 'var(--r-3xl-line-height)' }
+      ],
+      // General font sizes
+      xs: ['var(--xs-font-size)', { lineHeight: 'var(--xs-line-height)' }],
+      sm: ['var(--sm-font-size)', { lineHeight: 'var(--sm-line-height)' }],
+      base: [
+        'var(--base-font-size)',
+        { lineHeight: 'var(--base-line-height)' }
+      ],
+      lg: ['var(--lg-font-size)', { lineHeight: 'var(--lg-line-height)' }],
+      xl: ['var(--xl-font-size)', { lineHeight: 'var(--xl-line-height)' }],
+      '2xl': [
+        'var(--two-xl-font-size)',
+        { lineHeight: 'var(--two-xl-line-height)' }
+      ],
+      '3xl': [
+        'var(--three-xl-font-size)',
+        { lineHeight: 'var(--three-xl-line-height)' }
+      ],
+      '4xl': [
+        'var(--four-xl-font-size)',
+        { lineHeight: 'var(--four-xl-line-height)' }
+      ],
+      '5xl': [
+        'var(--five-xl-font-size)',
+        { lineHeight: 'var(--five-xl-line-height)' }
+      ],
+      '6xl': [
+        'var(--six-xl-font-size)',
+        { lineHeight: 'var(--six-xl-line-height)' }
+      ],
+      'little-display': [
+        'var(--little-display-font-size)',
+        { lineHeight: 'var(--little-display-line-height)' }
+      ],
+      display: [
+        'var(--display-font-size)',
+        { lineHeight: 'var(--display-line-height)' }
+      ],
+      'big-display': [
+        'var(--big-display-font-size)',
+        { lineHeight: 'var(--big-display-line-height)' }
+      ]
     },
     fontWeight: {
       thin: '100',
@@ -407,8 +400,8 @@ module.exports = {
       extrabold: '800',
       black: '900'
     },
-    gap: ({ theme }) => theme('spacing'),
-    gradientColorStops: ({ theme }) => theme('colors'),
+    gap: (theme) => theme('spacing'),
+    gradientColorStops: (theme) => theme('colors'),
     gridAutoColumns: {
       auto: 'auto',
       min: 'min-content',
@@ -523,7 +516,7 @@ module.exports = {
       5: 'repeat(5, minmax(0, 1fr))',
       6: 'repeat(6, minmax(0, 1fr))'
     },
-    height: ({ theme }) => ({
+    height: (theme) => ({
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
@@ -542,21 +535,26 @@ module.exports = {
       '4/6': '66.666667%',
       '5/6': '83.333333%',
       full: '100%',
-      screen: '100vh',
-      min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content'
+      screen: '100vh'
     }),
-    inset: ({ theme }) => ({
+    inset: (theme, { negative }) => ({
       auto: 'auto',
       ...theme('spacing'),
+      ...negative(theme('spacing')),
       '1/2': '50%',
       '1/3': '33.333333%',
       '2/3': '66.666667%',
       '1/4': '25%',
       '2/4': '50%',
       '3/4': '75%',
-      full: '100%'
+      full: '100%',
+      '-1/2': '-50%',
+      '-1/3': '-33.333333%',
+      '-2/3': '-66.666667%',
+      '-1/4': '-25%',
+      '-2/4': '-50%',
+      '-3/4': '-75%',
+      '-full': '-100%'
     }),
     keyframes: {
       spin: {
@@ -615,19 +613,17 @@ module.exports = {
       disc: 'disc',
       decimal: 'decimal'
     },
-    margin: ({ theme }) => ({
+    margin: (theme, { negative }) => ({
       auto: 'auto',
-      ...theme('spacing')
+      ...theme('spacing'),
+      ...negative(theme('spacing'))
     }),
-    maxHeight: ({ theme }) => ({
+    maxHeight: (theme) => ({
       ...theme('spacing'),
       full: '100%',
-      screen: '100vh',
-      min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content'
+      screen: '100vh'
     }),
-    maxWidth: ({ theme, breakpoints }) => ({
+    maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
       0: '0rem',
       xs: '20rem',
@@ -651,17 +647,13 @@ module.exports = {
     minHeight: {
       0: '0px',
       full: '100%',
-      screen: '100vh',
-      min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content'
+      screen: '100vh'
     },
     minWidth: {
       0: '0px',
       full: '100%',
       min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content'
+      max: 'max-content'
     },
     objectPosition: {
       bottom: 'bottom',
@@ -708,29 +700,19 @@ module.exports = {
       11: '11',
       12: '12'
     },
-    padding: ({ theme }) => theme('spacing'),
-    placeholderColor: ({ theme }) => theme('colors'),
-    placeholderOpacity: ({ theme }) => theme('opacity'),
-    outlineColor: ({ theme }) => theme('colors'),
-    outlineOffset: {
-      0: '0px',
-      1: '1px',
-      2: '2px',
-      4: '4px',
-      8: '8px'
+    outline: {
+      none: ['2px solid transparent', '2px'],
+      white: ['2px dotted white', '2px'],
+      black: ['2px dotted black', '2px']
     },
-    outlineWidth: {
-      0: '0px',
-      1: '1px',
-      2: '2px',
-      4: '4px',
-      8: '8px'
-    },
-    ringColor: ({ theme }) => ({
-      DEFAULT: theme('colors.blue.500', '#3b82f6'),
-      ...theme('colors')
+    padding: (theme) => theme('spacing'),
+    placeholderColor: (theme) => theme('textColor'),
+    placeholderOpacity: (theme) => theme('opacity'),
+    ringColor: (theme) => ({
+      ...theme('colors'),
+      DEFAULT: 'var(--default-ring-color)'
     }),
-    ringOffsetColor: ({ theme }) => theme('colors'),
+    ringOffsetColor: (theme) => theme('colors'),
     ringOffsetWidth: {
       0: '0px',
       1: '1px',
@@ -738,7 +720,7 @@ module.exports = {
       4: '4px',
       8: '8px'
     },
-    ringOpacity: ({ theme }) => ({
+    ringOpacity: (theme) => ({
       DEFAULT: '0.5',
       ...theme('opacity')
     }),
@@ -751,6 +733,14 @@ module.exports = {
       8: '8px'
     },
     rotate: {
+      '-180': '-180deg',
+      '-90': '-90deg',
+      '-45': '-45deg',
+      '-12': '-12deg',
+      '-6': '-6deg',
+      '-3': '-3deg',
+      '-2': '-2deg',
+      '-1': '-1deg',
       0: '0deg',
       1: '1deg',
       2: '2deg',
@@ -789,6 +779,11 @@ module.exports = {
       DEFAULT: '100%'
     },
     skew: {
+      '-12': '-12deg',
+      '-6': '-6deg',
+      '-3': '-3deg',
+      '-2': '-2deg',
+      '-1': '-1deg',
       0: '0deg',
       1: '1deg',
       2: '2deg',
@@ -796,38 +791,18 @@ module.exports = {
       6: '6deg',
       12: '12deg'
     },
-    space: ({ theme }) => ({
-      ...theme('spacing')
+    space: (theme, { negative }) => ({
+      ...theme('spacing'),
+      ...negative(theme('spacing'))
     }),
-    stroke: ({ theme }) => theme('colors'),
+    stroke: {
+      current: 'currentColor'
+    },
     strokeWidth: {
       0: '0',
       1: '1',
       2: '2'
     },
-    textColor: ({ theme }) => theme('colors'),
-    textDecorationColor: ({ theme }) => theme('colors'),
-    textDecorationThickness: {
-      auto: 'auto',
-      'from-font': 'from-font',
-      0: '0px',
-      1: '1px',
-      2: '2px',
-      4: '4px',
-      8: '8px'
-    },
-    textUnderlineOffset: {
-      auto: 'auto',
-      0: '0px',
-      1: '1px',
-      2: '2px',
-      4: '4px',
-      8: '8px'
-    },
-    textIndent: ({ theme }) => ({
-      ...theme('spacing')
-    }),
-    textOpacity: ({ theme }) => theme('opacity'),
     transformOrigin: {
       center: 'center',
       top: 'top',
@@ -864,9 +839,8 @@ module.exports = {
       none: 'none',
       all: 'all',
       DEFAULT:
-        'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
-      colors:
-        'color, background-color, border-color, text-decoration-color, fill, stroke',
+        'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
+      colors: 'background-color, border-color, color, fill, stroke',
       opacity: 'opacity',
       shadow: 'box-shadow',
       transform: 'transform'
@@ -878,17 +852,25 @@ module.exports = {
       out: 'cubic-bezier(0, 0, 0.2, 1)',
       'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
     },
-    translate: ({ theme }) => ({
+    translate: (theme, { negative }) => ({
       ...theme('spacing'),
+      ...negative(theme('spacing')),
       '1/2': '50%',
       '1/3': '33.333333%',
       '2/3': '66.666667%',
       '1/4': '25%',
       '2/4': '50%',
       '3/4': '75%',
-      full: '100%'
+      full: '100%',
+      '-1/2': '-50%',
+      '-1/3': '-33.333333%',
+      '-2/3': '-66.666667%',
+      '-1/4': '-25%',
+      '-2/4': '-50%',
+      '-3/4': '-75%',
+      '-full': '-100%'
     }),
-    width: ({ theme }) => ({
+    width: (theme) => ({
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
@@ -920,15 +902,8 @@ module.exports = {
       full: '100%',
       screen: '100vw',
       min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content'
+      max: 'max-content'
     }),
-    willChange: {
-      auto: 'auto',
-      scroll: 'scroll-position',
-      contents: 'contents',
-      transform: 'transform'
-    },
     zIndex: {
       auto: 'auto',
       0: '0',
