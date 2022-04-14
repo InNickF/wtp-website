@@ -1,0 +1,4 @@
+.burger-button {
+  color: rgba(255, 255, 255, 0.5);
+  @apply h-8 w-8 hover:text-white transition cursor-pointer;
+}

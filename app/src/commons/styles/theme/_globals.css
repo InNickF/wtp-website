@@ -35,8 +35,10 @@
   h6 {
     @apply text-xl;
   }
-
   a {
-    @apply cursor-pointer;
+    @apply cursor-pointer font-thin;
+  }
+  p {
+    @apply font-thin;
   }
 }

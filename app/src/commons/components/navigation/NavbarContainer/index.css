@@ -1,4 +1,4 @@
 .navbar-container {
   @apply p-5 h-20 fixed w-full top-0
-    backdrop-blur-md z-50 opacity-0;
+    backdrop-blur-md z-40 opacity-0;
 }

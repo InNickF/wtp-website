@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
+import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 import { MathUtils } from 'three'
 import ReactLogoModel from '@/website/components/3d/models/ReactLogoModel'
 import VueLogoModel from '../models/VueLogoModel'
@@ -9,6 +10,7 @@ import PythonLogoModel from '../models/PythonLogoModel'
 import AWSLogoModel from '../models/AWSLogoModel'
 import FastLogoModel from '../models/FastLogoModel'
 import JSLogoModel from '../models/JSLogoModel'
+import BackgroundElements from '../BackgroundElements'
 import { gsap } from 'gsap'
 
 const HeroWrapper = (props) => {
@@ -21,7 +23,7 @@ const HeroWrapper = (props) => {
   const djangoGroup = useRef()
   const vueGroup = useRef()
   const fastGroup = useRef()
-  const { viewport } = useThree()
+  const viewport = useThree((state) => state.viewport)
   const proportionalScale = viewport.height / 2.7
 
   useFrame(() => {
@@ -78,61 +80,83 @@ const HeroWrapper = (props) => {
     )
     tl.play()
   }, [])
-
+  const count = 15
   return (
-    <group ref={outer} {...props} position={[0, viewport.height, 0]}>
-      <group ref={pythonGroup} position={[0, 3.5, 0]} rotation={[0, 0, 0]}>
-        <PythonLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
+    <>
+      <group ref={outer} {...props} position={[0, viewport.height, 0]}>
+        <group ref={pythonGroup} position={[0, 3.5, 0]} rotation={[0, 0, 0]}>
+          <PythonLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group ref={jsGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
+          <JSLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group ref={awsGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
+          <AWSLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group
+          ref={figmaGroup}
+          position={[0, 3.5, 0]}
+          rotation={[Math.PI, 0, 0]}>
+          <FigmaLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group
+          ref={reactGroup}
+          position={[0, 3.5, 0]}
+          rotation={[Math.PI, 0, 0]}>
+          <ReactLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group
+          ref={djangoGroup}
+          position={[0, 3.5, 0]}
+          rotation={[Math.PI, 0, 0]}>
+          <DjangoLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group ref={vueGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
+          <VueLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
+        <group
+          ref={fastGroup}
+          position={[0, 3.5, 0]}
+          rotation={[Math.PI, 0, 0]}>
+          <FastLogoModel
+            proportionalScale={proportionalScale}
+            position={[0, -3.5, 0]}
+          />
+        </group>
       </group>
-      <group ref={jsGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
-        <JSLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
+      {Array.from({ length: count }, (_, i) => (
+        <BackgroundElements key={i} z={(-i - 5) * 0.625} />
+      ))}
+      <EffectComposer>
+        <DepthOfField
+          target={[0, 0, 0]}
+          focalLength={0.1}
+          bokehScale={3}
+          height={500}
         />
-      </group>
-      <group ref={awsGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
-        <AWSLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
-      </group>
-      <group ref={figmaGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
-        <FigmaLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
-      </group>
-      <group ref={reactGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
-        <ReactLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
-      </group>
-      <group
-        ref={djangoGroup}
-        position={[0, 3.5, 0]}
-        rotation={[Math.PI, 0, 0]}>
-        <DjangoLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
-      </group>
-      <group ref={vueGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
-        <VueLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
-      </group>
-      <group ref={fastGroup} position={[0, 3.5, 0]} rotation={[Math.PI, 0, 0]}>
-        <FastLogoModel
-          proportionalScale={proportionalScale}
-          position={[0, -3.5, 0]}
-        />
-      </group>
-    </group>
+      </EffectComposer>
+    </>
   )
 }
 

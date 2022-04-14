@@ -16,8 +16,9 @@ interface BackgroundElementsProps {
 
 const BackgroundElements = ({ z }: BackgroundElementsProps) => {
   const ref = useRef()
-  const { viewport, camera } = useThree()
-  const { width, height } = viewport.getCurrentViewport(camera, [0, 0, z])
+  const viewport = useThree((state) => state.viewport)
+
+  // const { width, height } = viewport.getCurrentViewport(camera, [0, 0, 0])
 
   const models = [
     ReactLogoModel,
@@ -34,8 +35,8 @@ const BackgroundElements = ({ z }: BackgroundElementsProps) => {
     []
   )
   const [data] = useState({
-    x: MathUtils.randFloatSpread(1),
-    y: MathUtils.randFloatSpread(height),
+    x: MathUtils.randFloatSpread(viewport.width),
+    y: MathUtils.randFloatSpread(1),
     rX: Math.random() * Math.PI,
     rY: Math.random() * Math.PI,
     rZ: Math.random() * Math.PI
@@ -43,34 +44,39 @@ const BackgroundElements = ({ z }: BackgroundElementsProps) => {
 
   useFrame(() => {
     ref.current.rotation.set(
-      (data.rX += 0.0005),
+      (data.rX += 0.005),
       (data.rY += 0.002),
-      (data.rZ += 0.0001)
+      (data.rZ += 0.001)
     )
-    ref.current.position.set(width * data.x, (data.y += 0.003), z)
-    if (data.y > height / 1.5) {
-      data.y = -height / 1.5
+    ref.current.position.set(
+      (data.x += 0.0025),
+      (viewport.height / 2) * data.y,
+      0
+    )
+    if (data.x > viewport.width / 2.7) {
+      data.x = -viewport.width / 2.7
     }
-    if (ref.current.children[0].scale.x < 1) {
+
+    if (ref.current.children[0].scale.x < 0.5) {
       ref.current.children[0].scale.x = MathUtils.lerp(
         ref.current.children[0].scale.x,
-        0.7,
+        0.5,
         0.05
       )
       ref.current.children[0].scale.y = MathUtils.lerp(
         ref.current.children[0].scale.y,
-        0.7,
+        0.5,
         0.05
       )
       ref.current.children[0].scale.z = MathUtils.lerp(
         ref.current.children[0].scale.z,
-        0.7,
+        0.5,
         0.05
       )
     }
   })
 
-  return <Model ref={ref} matcap scale={[0, 0, 0]} />
+  return <Model ref={ref} matcap pausedAnimation scale={[0, 0, 0]} />
 }
 
 export default BackgroundElements

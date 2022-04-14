@@ -2,7 +2,8 @@ import { LinkProps } from 'next/link'
 import { ReactNode } from 'react'
 
 export interface CustomLinkProps extends LinkProps {
-  scrollTo?: Boolean
+  anchor?: Boolean
   _blank?: Boolean
+  className?: string
   children: ReactNode
 }

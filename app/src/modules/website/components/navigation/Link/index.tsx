@@ -5,13 +5,14 @@ import { gsap } from 'gsap'
 import './index.css'
 
 const Link: FC<CustomLinkProps> = ({
-  scrollTo = false,
+  anchor = false,
   _blank = false,
   children,
   href,
+  className,
   ...props
 }) => {
-  const Anchor = scrollTo || _blank ? 'a' : NextLink
+  const Anchor = anchor || _blank ? 'a' : NextLink
   const underline = useRef<any>()
   const timeline = useRef<any>()
 
@@ -60,7 +61,10 @@ const Link: FC<CustomLinkProps> = ({
       {...props}
       href={href as any}
       target={_blank ? '_blank' : undefined}>
-      <span onMouseEnter={enterAnimation} onMouseLeave={leaveAnimation}>
+      <span
+        className={className}
+        onMouseEnter={enterAnimation}
+        onMouseLeave={leaveAnimation}>
         {children}
       </span>
       <span ref={underline} className="link-underline"></span>

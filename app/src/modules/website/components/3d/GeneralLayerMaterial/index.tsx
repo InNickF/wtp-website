@@ -14,6 +14,8 @@ const GeneralLayerMaterial = ({ proportionalScale = 1 }) => {
     ref.current.layers[3].origin.set(cos, sin, cos)
   })
 
+  proportionalScale = proportionalScale < 1 ? 1 : proportionalScale
+
   return (
     <LayerMaterial ref={ref} toneMapped={false}>
       <Depth

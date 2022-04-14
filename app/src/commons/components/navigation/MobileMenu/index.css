@@ -1,0 +1,20 @@
+.mobile-menu {
+  background-color: #200d2b;
+  @apply fixed w-screen h-screen grid place-items-center p-20 -top-full z-50;
+}
+
+.mobile-menu--ghost-text {
+  color: #180821;
+  font-size: 8vw;
+  @apply font-bold absolute;
+}
+
+.mobile-menu-container {
+  @apply flex flex-col gap-14 items-center justify-center;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-menu--ghost-text {
+    font-size: 18vw;
+  }
+}

@@ -1,0 +1,29 @@
+.footer-container {
+  background-color: #18082174;
+  @apply relative z-10;
+}
+
+.contact-section {
+  min-height: 70vh;
+  @apply p-12 pt-20 md:px-32 grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+.contact-title {
+  @apply mb-20;
+}
+
+.contact-content {
+  @apply flex flex-col gap-6 justify-start items-start;
+}
+
+.contact-details {
+  @apply mt-0 md:mt-28;
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  @apply mx-auto w-11/12 p-8 relative;
+}
+
+.footer-text {
+  @apply text-sm;
+}

@@ -1,0 +1,20 @@
+.process-container {
+  @apply w-full lg:w-5/12 relative;
+}
+
+.process--step-container {
+  @apply relative;
+}
+
+.process--step {
+  font-size: 9rem;
+  @apply absolute -left-7 top-0 text-white-opacity;
+}
+
+.process--name {
+  @apply mb-3;
+}
+
+.process--description {
+  @apply opacity-70;
+}

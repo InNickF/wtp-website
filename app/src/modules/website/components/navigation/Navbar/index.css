@@ -3,5 +3,5 @@
 }
 
 .links-container {
-  @apply flex items-center h-full relative gap-6;
+  @apply hidden md:flex items-center h-full relative gap-6;
 }

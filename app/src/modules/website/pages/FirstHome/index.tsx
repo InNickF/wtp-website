@@ -1,20 +1,17 @@
 import Head from '@/commons/components/layout/Head'
-import Menu from '@/website/components/navigation/Menu'
 import Scene from '@/website/components/3d/Scene'
+import Navbar from '@/website/components/navigation/Navbar'
 import HeroSection from './sections/HeroSection'
-import ProcessesSection from './sections/ProcessesSection'
-import FooterSection from './sections/FooterSection'
 import type { NextPage } from 'next'
+import './index.css'
 
 const Home: NextPage = () => {
   return (
     <>
       <Head />
-      <Menu />
-      <Scene />
+      <Navbar />
       <HeroSection />
-      <ProcessesSection />
-      <FooterSection />
+      <Scene />
     </>
   )
 }
