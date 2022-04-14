@@ -7,27 +7,40 @@ import AWSLogoModel from '../models/AWSLogoModel'
 const ProcessIcons = () => {
   useScrollCamera()
   const viewport = useThree((state) => state.viewport)
-  const responsiveCondition = viewport.width < 9.5
-  const proportionalScale = responsiveCondition
-    ? viewport.width / 8
-    : viewport.width / 15
-  const positionElement = responsiveCondition ? 0 : viewport.width / 6
+  const camera = useThree((state) => state.camera)
+
+  const { width } = viewport.getCurrentViewport(camera, [
+    camera.position.x,
+    camera.position.y,
+    0
+  ])
+
+  const responsiveCondition = width < 9.3
+  const proportionalScale = responsiveCondition ? 0.6 : 1
+  const positionX = responsiveCondition ? 0 : width / 6.5
+  const positionElements = [
+    [positionX, responsiveCondition ? 0.75 : 0, 0],
+    [positionX - 0.7, -1.2, 0],
+    [positionX + 0.7, -1.2, 0]
+  ] as any
+  const rotation = [0, responsiveCondition ? 0 : -Math.PI / 4, 0] as any
+
   return (
     <>
-      <group position={[0, -5, 0]}>
+      <group position={[0, responsiveCondition ? -5 : -4.7, 0]}>
         <PythonLogoModel
-          rotation={[0, -Math.PI / 4, 0]}
-          position={[positionElement, 0, 0]}
+          rotation={rotation}
+          position={positionElements[0]}
           proportionalScale={proportionalScale}
         />
         <ReactLogoModel
-          rotation={[0, -Math.PI / 4, 0]}
-          position={[positionElement - 1, -1, 0]}
+          rotation={rotation}
+          position={positionElements[1]}
           proportionalScale={proportionalScale}
         />
         <AWSLogoModel
-          rotation={[0, -Math.PI / 4, 0]}
-          position={[positionElement + 1, -0.8, 0]}
+          rotation={rotation}
+          position={positionElements[2]}
           proportionalScale={proportionalScale}
         />
       </group>

@@ -1,12 +1,16 @@
 import { useThree } from '@react-three/fiber'
-import { DepthOfField, EffectComposer } from '@react-three/postprocessing'
 import BackgroundElements from '../BackgroundElements'
 
 const FooterIcons = () => {
   const viewport = useThree((state) => state.viewport)
-  const responsiveCondition = viewport.width < 9.5
-
-  const count = responsiveCondition ? 5 : 12
+  const camera = useThree((state) => state.camera)
+  const { width } = viewport.getCurrentViewport(camera, [
+    camera.position.x,
+    camera.position.y,
+    0
+  ])
+  const responsiveCondition = width < 6
+  const count = responsiveCondition ? 6 : 16
   return (
     <>
       <group position={[0, -10, 0]}>
@@ -14,14 +18,6 @@ const FooterIcons = () => {
           <BackgroundElements key={i} z={(-i - 5) * 0.625} />
         ))}
       </group>
-      <EffectComposer>
-        <DepthOfField
-          target={[0, 0, 0]}
-          focalLength={0.1}
-          bokehScale={3}
-          height={500}
-        />
-      </EffectComposer>
     </>
   )
 }

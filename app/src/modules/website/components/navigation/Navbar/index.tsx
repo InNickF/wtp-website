@@ -14,7 +14,7 @@ const Navbar: FC<NavbarProps> = ({ children, open }) => {
       <section className="navbar-grid">
         <WPTLogo />
         <div className="links-container">{children}</div>
-        <BurgerMenu classNames="block md:hidden" open={open} />
+        <BurgerMenu hideOnDesktop open={open} />
       </section>
     </NavbarContainer>
   )

@@ -1,6 +1,6 @@
 .close-button {
   text-decoration: none;
-  @apply grid place-content-center p-4 rounded-full bg-transparent hover:bg-white-opacity border-none m-0 text-white text-base cursor-pointer text-center transition absolute top-4 right-7;
+  @apply grid place-content-center p-4 rounded-full bg-transparent hover:bg-white-opacity border-none m-0 text-white text-base cursor-pointer text-center transition absolute top-4 right-6;
 }
 
 .close-button:focus {

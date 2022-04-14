@@ -38,12 +38,13 @@ const useScrollCamera = () => {
   }, [])
 
   useFrame(({ camera }, deltaTime) => {
-    camera.position.y += parallaxValue({
-      finalValue: scroll.y,
-      currentValue: camera.position.y,
-      deltaTime,
-      intensity: 10
-    })
+    camera.position.y = scroll.y
+    // camera.position.y += parallaxValue({
+    //   finalValue: scroll.y,
+    //   currentValue: camera.position.y,
+    //   deltaTime,
+    //   intensity: 30
+    // })
   })
 }
 

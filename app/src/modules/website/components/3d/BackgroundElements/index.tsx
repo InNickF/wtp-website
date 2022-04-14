@@ -17,8 +17,13 @@ interface BackgroundElementsProps {
 const BackgroundElements = ({ z }: BackgroundElementsProps) => {
   const ref = useRef()
   const viewport = useThree((state) => state.viewport)
+  const camera = useThree((state) => state.camera)
 
-  // const { width, height } = viewport.getCurrentViewport(camera, [0, 0, 0])
+  const { width, height } = viewport.getCurrentViewport(camera, [
+    camera.position.x,
+    camera.position.y,
+    0
+  ])
 
   const models = [
     ReactLogoModel,
@@ -35,7 +40,7 @@ const BackgroundElements = ({ z }: BackgroundElementsProps) => {
     []
   )
   const [data] = useState({
-    x: MathUtils.randFloatSpread(viewport.width),
+    x: MathUtils.randFloatSpread(width),
     y: MathUtils.randFloatSpread(1),
     rX: Math.random() * Math.PI,
     rY: Math.random() * Math.PI,
@@ -48,13 +53,9 @@ const BackgroundElements = ({ z }: BackgroundElementsProps) => {
       (data.rY += 0.002),
       (data.rZ += 0.001)
     )
-    ref.current.position.set(
-      (data.x += 0.0025),
-      (viewport.height / 2) * data.y,
-      0
-    )
-    if (data.x > viewport.width / 2.7) {
-      data.x = -viewport.width / 2.7
+    ref.current.position.set((data.x += 0.0025), (height / 2) * data.y, 0)
+    if (data.x > width / 2.7) {
+      data.x = -width / 2.7
     }
 
     if (ref.current.children[0].scale.x < 0.5) {

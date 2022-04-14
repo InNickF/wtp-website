@@ -1,4 +1,22 @@
 .burger-button {
+  text-decoration: none;
+  @apply relative h-10 w-10 grid place-content-center p-4 rounded-full bg-transparent hover:bg-white-opacity m-0 text-base cursor-pointer text-center transition z-40;
+}
+
+.burger-button__hide-on-desktop {
+  @apply grid md:hidden !important;
+}
+
+.burger-button:focus {
+  outline: none;
+  outline-offset: none;
+}
+
+.burger-button:active {
+  transform: scale(0.9);
+}
+
+.burger-button svg {
   color: rgba(255, 255, 255, 0.5);
-  @apply h-8 w-8 hover:text-white transition cursor-pointer;
+  @apply hover:text-white h-7 w-7;
 }
