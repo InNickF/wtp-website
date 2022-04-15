@@ -1,6 +1,8 @@
 import { useRef, createContext, FC, useEffect } from 'react'
 import { gsap } from 'gsap'
 import processesData from '../utils/processesData'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const TimeLineContext = createContext({})
 

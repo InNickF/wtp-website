@@ -1,7 +1,6 @@
 import { useRef, useEffect, useContext } from 'react'
 import { useThree } from '@react-three/fiber'
 import { gsap } from 'gsap'
-import useScrollCamera from '@/modules/website/hooks/useScrollCamera'
 import TimeLineContext from '@/modules/website/contexts/TimelineProcessesContext'
 import AWSLogoModel from '../models/AWSLogoModel'
 import DjangoLogoModel from '../models/DjangoLogoModel'
@@ -13,10 +12,10 @@ import ReactLogoModel from '../models/ReactLogoModel'
 import VueLogoModel from '../models/VueLogoModel'
 import processesData from '@/modules/website/utils/processesData'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
-const ProcessIcons = () => {
-  useScrollCamera()
 
+gsap.registerPlugin(ScrollTrigger)
+
+const ProcessIcons = () => {
   const viewport = useThree((state) => state.viewport)
   const camera = useThree((state) => state.camera)
   const { width } = viewport.getCurrentViewport(camera, [
