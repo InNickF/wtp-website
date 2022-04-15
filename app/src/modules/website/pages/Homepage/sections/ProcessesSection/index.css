@@ -2,6 +2,10 @@
   @apply min-h-screen p-12 pt-20 md:px-32 flex flex-col relative;
 }
 
+.player-container {
+  @apply flex flex-col items-center gap-4 mr-10;
+}
+
 .processes-title {
   @apply text-center flex-grow-0 flex-shrink-0;
 }
@@ -14,7 +18,7 @@
   width: 2px;
   height: 140px;
   opacity: 0;
-  @apply bg-white-opacity rounded-full mr-10;
+  @apply bg-white-opacity rounded-full;
 }
 
 .loader-element {

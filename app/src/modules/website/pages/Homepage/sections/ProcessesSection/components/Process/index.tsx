@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { ProcessProps } from './typings/props'
+import { ProcessProps } from '@/modules/website/utils/processesData'
 import './index.css'
 
 const Process = ({ step, name, description, id }: ProcessProps) => {

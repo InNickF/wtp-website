@@ -137,7 +137,7 @@ Here is the general folder information:
 |   |   ├── modules/: Contains isolated app modules.
 |   |   ├── pages/: Nextjs file routing system
 |   |   ├── services/: Global HTTP data fetching and management system.
-|   |   └── store/: Global state management system (Redux).
+|   |   └── store/: Global state management system (Like redux).
 |   |        └── modules/: Global app modules.
 |   |
 |   |

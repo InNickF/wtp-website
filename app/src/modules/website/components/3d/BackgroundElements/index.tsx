@@ -54,8 +54,8 @@ const BackgroundElements = ({ z }: BackgroundElementsProps) => {
       (data.rZ += 0.001)
     )
     ref.current.position.set((data.x += 0.0025), (height / 2) * data.y, 0)
-    if (data.x > width / 2.7) {
-      data.x = -width / 2.7
+    if (data.x > width / 2) {
+      data.x = -width / 2
     }
 
     if (ref.current.children[0].scale.x < 0.5) {

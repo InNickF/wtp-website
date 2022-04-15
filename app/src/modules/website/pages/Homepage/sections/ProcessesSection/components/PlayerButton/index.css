@@ -1,0 +1,12 @@
+.player-button {
+  color: rgba(255, 255, 255, 0.5);
+  @apply h-8 w-8 hover:text-white transition;
+}
+
+.player-button:active {
+  transform: scale(0.9);
+}
+
+#player-button {
+  @apply opacity-0;
+}
