@@ -15,15 +15,9 @@
 }
 
 .loader-container {
-  width: 2px;
-  height: 140px;
-  opacity: 0;
-  @apply bg-white-opacity rounded-full;
+  @apply opacity-0 flex flex-col gap-2;
 }
 
-.loader-element {
-  display: block;
-  width: 2px;
-  height: 0px;
-  @apply bg-white rounded-full;
+.player-container:hover .loader-button {
+  transform: scaleX(2);
 }

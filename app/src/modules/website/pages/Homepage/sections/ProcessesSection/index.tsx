@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef } from 'react'
 import TimeLineContext from '@/modules/website/contexts/TimelineProcessesContext'
 import Process from './components/Process'
 import ButtonPlayer from './components/PlayerButton'
+import LoaderButton from './components/LoaderButton'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import processesData from '@/modules/website/utils/processesData'
@@ -12,10 +13,11 @@ const ProcessesSection = () => {
   const processes = processesData
   const { timeline, animationSlideDuration, animationEndDuration } =
     useContext(TimeLineContext)
-  const loader = useRef<any>()
   const loaderContainer = useRef<any>()
 
   useEffect(() => {
+    const buttonLoadersSelector = gsap.utils.selector(loaderContainer)
+
     gsap.to([loaderContainer.current, '#player-button'], {
       opacity: 1,
       ease: 'Poser2.inOut',
@@ -29,7 +31,7 @@ const ProcessesSection = () => {
     processes.forEach((process, index) => {
       timeline.current.add(
         gsap.fromTo(
-          loader.current,
+          buttonLoadersSelector(`#${process.id}-loader-element`),
           {
             opacity: 1,
             height: 0
@@ -38,8 +40,7 @@ const ProcessesSection = () => {
             height: '100%',
             opacity: 1,
             duration: 6,
-            delay: 1,
-            ease: 'Power2.inOut'
+            delay: 1
           }
         ),
         animationSlideDuration(index)
@@ -133,7 +134,7 @@ const ProcessesSection = () => {
         animationEndDuration(index)
       )
       timeline.current.add(
-        gsap.to(loader.current, {
+        gsap.to(buttonLoadersSelector(`#${process.id}-loader-element`), {
           opacity: 0,
           duration: 1
         }),
@@ -148,7 +149,14 @@ const ProcessesSection = () => {
       <div className="processes-container">
         <div className="player-container">
           <span ref={loaderContainer} className="loader-container">
-            <span ref={loader} className="loader-element"></span>
+            {processes.map((process, index) => (
+              <LoaderButton
+                id={process.id}
+                key={`${process.id}-lb`}
+                tl={timeline.current}
+                to={animationSlideDuration(index)}
+              />
+            ))}
           </span>
           <ButtonPlayer tl={timeline.current} />
         </div>

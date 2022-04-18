@@ -1,0 +1,14 @@
+.loader-button {
+  transition: transform 0.2s ease-in-out;
+  width: 3px;
+  height: 30px;
+  @apply bg-white-opacity rounded-full relative flex justify-start items-start;
+}
+
+.loader-element {
+  transition: transform 0.2s ease-in-out;
+  display: block;
+  width: 3px;
+  height: 0px;
+  @apply bg-white rounded-full;
+}
