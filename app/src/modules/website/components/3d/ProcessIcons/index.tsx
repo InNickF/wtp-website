@@ -1,17 +1,24 @@
 import { useRef, useEffect, useContext } from 'react'
 import { useThree } from '@react-three/fiber'
-import { gsap } from 'gsap'
 import TimeLineContext from '@/modules/website/contexts/TimelineProcessesContext'
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import AWSLogoModel from '../models/AWSLogoModel'
 import DjangoLogoModel from '../models/DjangoLogoModel'
 import FastLogoModel from '../models/FastLogoModel'
 import FigmaLogoModel from '../models/FigmaLogoModel'
-import JSLogoModel from '../models/JSLogoModel'
 import PythonLogoModel from '../models/PythonLogoModel'
 import ReactLogoModel from '../models/ReactLogoModel'
-import VueLogoModel from '../models/VueLogoModel'
+import SearchIconModel from '../models/SearchIconModel'
+import QuestionIconModel from '../models/QuestionIconModel'
+import GearIconModel from '../models/GearIconModel'
+import UxIconModel from '../models/UxIconModel'
+import UiIconModel from '../models/UiIconModel'
+import CloudIconModel from '../models/CloudIconModel'
+import DownloadIconModel from '../models/DownloadIconModel'
+import BarsIconModel from '../models/BarsIconModel'
+import KerasLogoModel from '../models/KerasLogoModel'
 import processesData from '@/modules/website/utils/processesData'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -57,46 +64,46 @@ const ProcessIcons = () => {
   const modelsByProcesses = [
     [
       {
-        component: AWSLogoModel,
+        component: SearchIconModel,
         ref: firstProcessModelOne,
         key: 'firstProcessModelOne'
       },
       {
-        component: AWSLogoModel,
+        component: QuestionIconModel,
         ref: firstProcessModelTwo,
         key: 'firstProcessModelTwo'
       },
       {
-        component: AWSLogoModel,
+        component: GearIconModel,
         ref: firstProcessModelThree,
         key: 'firstProcessModelThree'
       }
     ],
     [
       {
-        component: FigmaLogoModel,
+        component: UxIconModel,
         ref: secondProcessModelOne,
         key: 'secondProcessModelOne'
       },
       {
-        component: DjangoLogoModel,
+        component: FigmaLogoModel,
         ref: secondProcessModelTwo,
         key: 'secondProcessModelTwo'
       },
       {
-        component: DjangoLogoModel,
+        component: UiIconModel,
         ref: secondProcessModelThree,
         key: 'secondProcessModelThree'
       }
     ],
     [
       {
-        component: FastLogoModel,
+        component: CloudIconModel,
         ref: thirdProcessModelOne,
         key: 'thirdProcessModelOne'
       },
       {
-        component: FastLogoModel,
+        component: DownloadIconModel,
         ref: thirdProcessModelTwo,
         key: 'thirdProcessModelTwo'
       },
@@ -113,12 +120,12 @@ const ProcessIcons = () => {
         key: 'fourthProcessModelOne'
       },
       {
-        component: FastLogoModel,
+        component: BarsIconModel,
         ref: fourthProcessModelTwo,
         key: 'fourthProcessModelTwo'
       },
       {
-        component: JSLogoModel,
+        component: KerasLogoModel,
         ref: fourthProcessModelThree,
         key: 'fourthProcessModelThree'
       }
@@ -214,7 +221,6 @@ const ProcessIcons = () => {
         // there is a problem with gsap labels
         animationEndDuration(index)
       )
-      console.log(animationSlideDuration(index), animationEndDuration(index))
     })
   }, [])
 

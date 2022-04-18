@@ -12,7 +12,7 @@
 }
 
 .process--name {
-  @apply mb-3;
+  @apply mb-3 text-3xl sm:text-4xl;
 }
 
 .process--description {

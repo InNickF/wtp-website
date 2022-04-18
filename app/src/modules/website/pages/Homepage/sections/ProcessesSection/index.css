@@ -3,7 +3,7 @@
 }
 
 .player-container {
-  @apply flex flex-col items-center gap-4 mr-10;
+  @apply flex flex-col items-center gap-4 mr-6 md:mr-10;
 }
 
 .processes-title {
