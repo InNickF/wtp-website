@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import './index.css'
-import Particles from './components/Particles'
 
 const HeroSection = () => {
   const header = useRef<any>()
@@ -69,9 +68,6 @@ const HeroSection = () => {
         </h2>
         <h2 className="hero-display-font">We think and design solutions</h2>
       </section>
-      <div className="particles-container">
-        <Particles />
-      </div>
     </>
   )
 }

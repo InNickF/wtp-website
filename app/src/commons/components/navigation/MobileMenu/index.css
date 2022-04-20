@@ -1,6 +1,6 @@
 .mobile-menu {
   background-color: #200d2b;
-  @apply fixed w-screen h-screen grid place-items-center p-20 -top-full z-50;
+  @apply fixed w-screen h-full grid place-items-center p-20 -top-full z-50;
 }
 
 .mobile-menu--ghost-text {
