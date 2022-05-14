@@ -144,7 +144,7 @@ const ProcessesSection = () => {
   }, [])
 
   return (
-    <section id="process" className="processes-section">
+    <section className="processes-section">
       <h2 className="processes-title">Our process</h2>
       <div className="processes-container">
         <div className="player-container">

@@ -11,9 +11,7 @@ const FooterSection = () => {
     <div className="footer-container">
       <section className="contact-section">
         <div>
-          <h2 id="contact" className="contact-title">
-            Get in touch
-          </h2>
+          <h2 className="contact-title">Get in touch</h2>
           <div className="contact-content">
             <Link anchor href={`mailto:${email}`}>
               {email}
@@ -24,13 +22,13 @@ const FooterSection = () => {
           </div>
         </div>
         <div>
-          <p className="contact-details">
+          {/* <p className="contact-details">
             WhitePeak is now part of the{' '}
             <Link _blank href="https://elionpartners.com/">
               Elion Partners Team
             </Link>
             . Read press release.
-          </p>
+          </p> */}
         </div>
       </section>
       <footer className="footer">

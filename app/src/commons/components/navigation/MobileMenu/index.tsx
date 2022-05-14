@@ -57,7 +57,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ children, isOpen, close }) => {
   return (
     <nav ref={menu} className="mobile-menu">
       <CloseButton close={close} />
-      <span className="mobile-menu--ghost-text">Menu</span>
+      <span className="mobile-menu--ghost-text"></span>
       <section className="mobile-menu-container">{children}</section>
     </nav>
   )
