@@ -5,6 +5,7 @@ import TSParticles from 'react-tsparticles'
 const Particles = () => {
   const [options, setOptions] = useState<any>({
     particles: {
+      fullScreen: false,
       number: {
         value: 20
       },
@@ -82,6 +83,7 @@ const Particles = () => {
   useEffect(() => {
     if (window.screen.width > 800) {
       setOptions({
+        fullScreen: false,
         particles: {
           number: {
             value: 120
@@ -162,7 +164,8 @@ const Particles = () => {
   useEffect(() => {
     gsap.set('#particles canvas', {
       position: 'absolute',
-      zIndex: 1
+      zIndex: 1,
+      top: 0
     })
     gsap.fromTo(
       '#particles',
@@ -176,9 +179,11 @@ const Particles = () => {
     )
   })
   return (
-    <>
-      <TSParticles id="particles" options={options} />
-    </>
+    <TSParticles
+      id="particles"
+      style={{ position: 'absolute', zIndex: 1, top: 0 }}
+      options={options}
+    />
   )
 }
 

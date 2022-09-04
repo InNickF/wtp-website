@@ -1,5 +1,5 @@
 .hero-section {
-  @apply grid min-h-screen opacity-0 place-items-center px-0 md:px-8 lg:px-14;
+  @apply flex min-h-screen opacity-0 justify-center items-center px-0 md:px-8 lg:px-14;
 }
 
 .hero-display-font {
